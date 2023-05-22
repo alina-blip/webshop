@@ -1,0 +1,14 @@
+.main-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+//  justify-content: space-around;
+//flex-direction: column;
+}
+.mat-toolbar {
+  z-index: 100;
+}
+
+.image-logo {
+  height: 33px;
+}
