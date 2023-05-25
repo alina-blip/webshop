@@ -1,0 +1,38 @@
+.footer {
+  //position: fixed;
+  //bottom: 0;
+  width: 100%;
+  //z-index: 9999;
+}
+.footer-list {
+  padding-right: 100px;
+  text-align: left;
+}
+
+.footer-list-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+li {
+  padding-bottom: 8px;
+}
+
+.social-media-icons {
+  padding-left: 15px;
+}
+
+.logo {
+  height: 120px;
+  width: 200px;
+  object-fit: cover;
+}
+
