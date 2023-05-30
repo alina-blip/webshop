@@ -7,10 +7,27 @@
 }
 .mat-toolbar {
   z-index: 100;
+  background-color: white;
 }
 
 .image-logo {
   //height: 33px;
-  width: 100px;
+  width: 80px;
   object-fit: cover;
+}
+
+a {
+  font-family: "Roboto";
+  font-size: 1.1em;
+  font-weight: lighter;
+  color: rgb(65, 53, 67);
+}
+
+a:hover {
+  color: rgb(143, 67, 238);
+  background-color: transparent;
+}
+a:active {
+  color: rgb(170, 80, 255);
+  //color: rgb(240, 235, 141)
 }
