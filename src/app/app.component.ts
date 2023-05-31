@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {MainComponent} from "./views/main/main.component";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatButtonModule} from "@angular/material/button";
-import {ShopContainerComponent} from "./views/shop-container/shop-container.component";
+import {ProductsContainerComponent} from "./views/products-container/products-container.component";
 import { RouterOutlet } from '@angular/router';
 import { RouterLinkWithHref } from '@angular/router';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
@@ -27,7 +27,7 @@ const dbConfig: DBConfig = {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [MainComponent, MatSlideToggleModule, MatButtonModule, ShopContainerComponent, RouterOutlet,
+  imports: [MainComponent, MatSlideToggleModule, MatButtonModule, ProductsContainerComponent, RouterOutlet,
     RouterLinkWithHref, FooterComponent],
   styleUrls: ['./app.component.scss'],
   standalone: true,

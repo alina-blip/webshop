@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ProductDetailComponent} from "../../components/product-detail/product-detail.component";
 import {Product} from "../../product";
 import {Observable} from "rxjs";
+import { ShopService } from '../../shop.service'
 
 @Component({
   selector: 'app-product-detail-container',
@@ -12,5 +13,8 @@ import {Observable} from "rxjs";
   styleUrls: ['./product-detail-container.component.scss']
 })
 export class ProductDetailContainerComponent {
-  // Product$: Observable<Product> | undefined ;
+  // Product$: Observable<Product> | undefined;
+
+  constructor(private shopService: ShopService) {}
+
 }
