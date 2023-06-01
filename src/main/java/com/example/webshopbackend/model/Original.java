@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 
-@Entity()
+@Entity
 public class Original {
 
     @Id
@@ -19,10 +19,9 @@ public class Original {
     private String material;
     @NotNull
     private String description;
+    private float price;
     @NotNull
-    private double price;
-    @NotNull
-    private byte image_data;
+    private String image_data;
 
     public long getId() {
         return id;
@@ -68,15 +67,15 @@ public class Original {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public byte getImage_data() {
+    public String getImage_data() {
         return image_data;
     }
 
-    public void setImage_data(byte image_data) {
+    public void setImage_data(String image_data) {
         this.image_data = image_data;
     }
 }

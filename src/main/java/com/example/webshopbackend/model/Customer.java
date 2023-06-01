@@ -3,39 +3,29 @@ package com.example.webshopbackend.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Customer {
     @Id
     @GeneratedValue
-    @NotNull
-    private Long id;
-    @NotNull
+    private long id;
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
     private String surname;
-    @NotNull
+    @NotBlank
     private String street;
-    @NotNull
+    @NotBlank
     private String housenumber;
-    @NotNull
+    @NotBlank
     private String postalcode;
-    @NotNull
+    @NotBlank
     private String country;
-    @NotNull
+    @NotBlank
+    @Email
     private String mail;
-
-    public Customer(@NotNull Long id, @NotNull String name, @NotNull String surname, @NotNull String street, @NotNull String housenumber, @NotNull String postalcode, @NotNull String country, @NotNull String mail) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.street = street;
-        this.housenumber = housenumber;
-        this.postalcode = postalcode;
-        this.country = country;
-        this.mail = mail;
-    }
 
     public Long getId() {
         return id;

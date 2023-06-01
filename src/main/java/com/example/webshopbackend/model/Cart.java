@@ -1,18 +1,78 @@
 package com.example.webshopbackend.model;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
+@Entity
 public class Cart {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private long id;
+
+    @ManyToOne
     private Customer customer;
+    @ManyToOne
     private Original original;
-    private String category;
-    // Original | Print | Sticker;
+    @Enumerated(EnumType.STRING)
+    private Category category;
     private String size;
-    private Number count;
-    private Date date;
+    private int count;
+    private LocalDate date;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Original getOriginal() {
+        return original;
+    }
+
+    public void setOriginal(Original original) {
+        this.original = original;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

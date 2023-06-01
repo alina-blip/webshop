@@ -7,7 +7,8 @@ import com.example.webshopbackend.service.OriginalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/original")
+@RestController
+@RequestMapping("/original")
 public class OriginalController {
 
     private final OriginalService service;
@@ -16,18 +17,18 @@ public class OriginalController {
     OriginalController(OriginalService service) {
         this.service = service;
     }
-    @PostMapping
+    @PostMapping("")
     public Original save(@RequestBody Original original) {
         return service.save(original);
     }
 
-    @GetMapping
-    List<Original> all() {
+    @GetMapping("")
+    public List<Original> all() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    Optional<Original> one (@PathVariable Long id) {
+    public Optional<Original> one (@PathVariable long id) {
         return service.findById(id);
     }
 
