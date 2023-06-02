@@ -1,6 +1,5 @@
 package com.example.webshopbackend.model;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
