@@ -2,8 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-//  justify-content: space-around;
-//flex-direction: column;
+
 }
 .mat-toolbar {
   z-index: 100;
@@ -11,16 +10,23 @@
 }
 
 .image-logo {
-  //height: 33px;
   width: 80px;
   object-fit: cover;
 }
+
+
 
 a {
   font-family: "Roboto";
   font-size: 1.1em;
   font-weight: lighter;
   color: rgb(65, 53, 67);
+}
+.special-h {
+  font-family: "subway-new-york-std", sans-serif;
+  font-size: 1.2em;
+  color: black;
+  text-align: left;
 }
 
 a:hover {
