@@ -7,11 +7,12 @@ import { ActivatedRoute } from '@angular/router'
 import { ShopService } from '../../shop.service'
 import { MatListModule } from '@angular/material/list'
 import { MatRadioModule } from '@angular/material/radio'
+import { MatGridListModule } from '@angular/material/grid-list'
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatListModule, MatRadioModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatListModule, MatRadioModule, MatGridListModule],
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })
