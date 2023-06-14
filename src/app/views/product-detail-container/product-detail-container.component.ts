@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ProductDetailComponent} from "../../components/product-detail/product-detail.component";
-import {Observable} from "rxjs";
 import { ShopService } from '../../shop.service'
 
 @Component({
@@ -15,5 +14,4 @@ export class ProductDetailContainerComponent {
   // Product$: Observable<Product> | undefined;
 
   constructor(private shopService: ShopService) {}
-
 }

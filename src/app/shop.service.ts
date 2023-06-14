@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 
-
-
 export interface Product {
   id: string | '1';
-  title: string | 'name'
+  title: string | 'name';
   size: string;
   material: string;
   description: string;
@@ -13,7 +11,6 @@ export interface Product {
   inventory_count: number;
   cart_count: number;
   date: string;
-
 }
 
 export enum Category {
@@ -23,7 +20,7 @@ export enum Category {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShopService {
   items: Product[] = [];
@@ -47,7 +44,6 @@ export class ShopService {
     return this.items;
   }
 
-
   isNameInCart(product: Product) {
     return this.items.some((item) => product.title === item.title);
   }
@@ -60,6 +56,4 @@ export class ShopService {
       }
     });
   }
-
-
 }
