@@ -1,0 +1,21 @@
+
+  <div class="card-container">
+  <mat-card>
+    <mat-card-content>
+      <h2>Storage</h2>
+      <h3>Originals</h3>
+      <div *ngFor="let originalitems of original">
+        <div class="item-container">
+        <mat-card>
+        <div>  Title: {{ originalitems.title }} </div>
+          <div>  Material: {{ originalitems.material }}</div>
+            <div>  Description: {{ originalitems.description }}</div>
+              <div>  Price: {{ originalitems.price }}</div>
+                <div>  Bild: {{ originalitems.image_data }}</div>
+        </mat-card>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  </div>
+
