@@ -9,6 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatListModule} from "@angular/material/list";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from "@angular/material/icon";
+import { RouterLink } from '@angular/router'
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,7 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatSelectModule, ReactiveFormsModule, MatInputModule, MatListModule, MatFormFieldModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatSelectModule, ReactiveFormsModule, MatInputModule, MatListModule, MatFormFieldModule, MatIconModule, RouterLink],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })

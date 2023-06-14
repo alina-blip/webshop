@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {ProductsComponent} from "../../components/products/products.component";
 import {Observable} from "rxjs";
 import {ProductDetailContainerComponent} from "../product-detail-container/product-detail-container.component";
-import {Product} from "../../product";
 import {ShopService} from "../../shop.service";
 import { FooterComponent } from '../../components/footer/footer.component'
 

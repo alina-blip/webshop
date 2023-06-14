@@ -1,10 +1,9 @@
 import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product} from "../../product";
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
 import { ActivatedRoute } from '@angular/router'
-import { ShopService } from '../../shop.service'
+import { Product, ShopService } from '../../shop.service'
 import { MatListModule } from '@angular/material/list'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatGridListModule } from '@angular/material/grid-list'

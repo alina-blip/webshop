@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ProductDetailComponent} from "../../components/product-detail/product-detail.component";
-import {Product} from "../../product";
 import {Observable} from "rxjs";
 import { ShopService } from '../../shop.service'
 

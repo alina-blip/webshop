@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { CommonModule } from '@angular/common';
-import { Product } from '../../product'
+import { Product } from '../../shop.service'
+
 
 @Component({
   selector: 'app-cart',
