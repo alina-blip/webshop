@@ -5,6 +5,7 @@ import {CartContainerComponent} from "./views/cart-container/cart-container.comp
 import {ProductDetailContainerComponent} from "./views/product-detail-container/product-detail-container.component";
 import { AboutContainerComponent } from './views/about-container/about-container.component'
 import { WorksContainerComponent } from './views/works-container/works-container.component'
+import { AdminContainerComponent } from './views/admin-container/admin-container.component'
 
 export const APP_ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: ''},
@@ -13,4 +14,6 @@ export const APP_ROUTES: Routes = [
   { path: 'product', component: ProductDetailContainerComponent},
   { path: 'about', component: AboutContainerComponent},
   { path: 'works', component: WorksContainerComponent},
+  { path: 'admin', component: AdminContainerComponent}
+
 ]
