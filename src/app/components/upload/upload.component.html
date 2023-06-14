@@ -1,0 +1,42 @@
+<div class="card-container">
+  <mat-card>
+    <mat-card-content>
+      <h2>Add Original Item</h2>
+      <form [formGroup]="originalControl" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="id">ID: </label>
+          <input id="id" type="number" formControlName="id" >
+        </div>
+        <div>
+      <label for="title">Title: </label>
+        <input id="title" type="text" formControlName="title" >
+        </div>
+        <div>
+        <label for="size"> Size:</label>
+        <input id="size" type="text" formControlName="size">
+        </div>
+        <div>
+          <label for="material"> Material:</label>
+          <input id="material" type="text" formControlName="material">
+        </div>
+        <div>
+          <label for="description"> Description:</label>
+          <input id="description" type="text" formControlName="description">
+        </div>
+        <div>
+          <label for="price"> Price:</label>
+          <input id="price" type="text" formControlName="price">
+        </div>
+        <div>
+          <label for="image_data"> Image_Data:</label>
+          <input id="image_data" type="text" formControlName="image_data">
+        </div>
+
+        <button mat-raised-button type="submit" [disabled]="!originalControl.valid">Submit</button>
+
+      <p>status: {{ originalControl.status }}</p>
+        <p>value: {{ originalControl.value }}</p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
