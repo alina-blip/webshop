@@ -1,8 +1,14 @@
 .item-container {
   padding: 15px;
-  width: 300px;
+  min-width: 300px;
+  max-width: 400px;
 }
 .card-container {
   padding:25px;
 }
+mat-card {
+  padding: 15px;
+  min-width: 300px;
+}
+
 

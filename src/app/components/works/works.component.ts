@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterLink } from '@angular/router';
+import { Original } from '../../original.service'
 
 @Component({
   selector: 'elw-works',
@@ -10,4 +11,5 @@ import { RouterLink } from '@angular/router';
   templateUrl: './works.component.html',
   styleUrls: ['./works.component.scss'],
 })
-export class WorksComponent {}
+export class WorksComponent {
+}

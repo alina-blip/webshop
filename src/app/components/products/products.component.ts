@@ -1,17 +1,17 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { CommonModule } from '@angular/common';
-import {RouterLink} from "@angular/router";
-import {Input} from "@angular/core";
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
+import { RouterLink } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Original } from '../../original.service'
+import { MatCardModule } from '@angular/material/card'
 
 @Component({
-  selector: 'app-products',
+  selector: 'elw-products',
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule, MatCardModule],
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
-
-
+  @Input() original: Original[] | null= null;
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import {
@@ -9,19 +9,26 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Original } from '../../original.service';
+import { MatInputModule } from '@angular/material/input'
 
 @Component({
   selector: 'elw-upload',
   standalone: true,
-  imports: [CommonModule, MatCardModule, ReactiveFormsModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+  ],
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
 })
 export class UploadComponent {
   @Output() addToDatabase: EventEmitter<Original> =
     new EventEmitter<Original>();
+  @Input() origin: Original | null = null;
   originalControl = new FormGroup({
-    id: new FormControl(1, [Validators.required]),
     title: new FormControl('', [Validators.required]),
     size: new FormControl('', [Validators.required]),
     material: new FormControl('', [Validators.required]),

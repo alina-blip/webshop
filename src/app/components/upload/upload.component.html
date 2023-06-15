@@ -4,38 +4,46 @@
       <h2>Add Original Item</h2>
       <form [formGroup]="originalControl" (ngSubmit)="onSubmit()">
         <div>
-          <label for="id">ID: </label>
-          <input id="id" type="number" formControlName="id" >
+<mat-form-field>
+          <mat-label>Title: </mat-label>
+        <input matInput id="title" type="text" formControlName="title" >
+</mat-form-field>
         </div>
         <div>
-      <label for="title">Title: </label>
-        <input id="title" type="text" formControlName="title" >
+<mat-form-field>
+        <mat-label> Size:</mat-label>
+        <input matInput id="size" type="text" formControlName="size">
+</mat-form-field>
         </div>
         <div>
-        <label for="size"> Size:</label>
-        <input id="size" type="text" formControlName="size">
+          <mat-form-field>
+          <mat-label> Material:</mat-label>
+          <input matInput id="material" type="text" formControlName="material">
+          </mat-form-field>
         </div>
         <div>
-          <label for="material"> Material:</label>
-          <input id="material" type="text" formControlName="material">
+          <mat-form-field>
+          <mat-label> Description:</mat-label>
+          <input matInput id="description" type="text" formControlName="description">
+          </mat-form-field>
         </div>
         <div>
-          <label for="description"> Description:</label>
-          <input id="description" type="text" formControlName="description">
+          <mat-form-field>
+          <mat-label> Price:</mat-label>
+          <input matInput id="price" type="text" formControlName="price">
+          </mat-form-field>
         </div>
         <div>
-          <label for="price"> Price:</label>
-          <input id="price" type="text" formControlName="price">
-        </div>
-        <div>
-          <label for="image_data"> Image_Data:</label>
-          <input id="image_data" type="text" formControlName="image_data">
+          <mat-form-field>
+          <mat-label> Image_Data:</mat-label>
+          <input matInput id="image_data" type="text" formControlName="image_data">
+          </mat-form-field>
         </div>
 
         <button mat-raised-button type="submit" [disabled]="!originalControl.valid">Submit</button>
 
-      <p>status: {{ originalControl.status }}</p>
-        <p>value: {{ originalControl.value }}</p>
+      <p>Status: {{ originalControl.status }}</p>
+        <p>Value: {{ originalControl.value | json }}</p>
       </form>
     </mat-card-content>
   </mat-card>

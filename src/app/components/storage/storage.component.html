@@ -7,11 +7,12 @@
       <div *ngFor="let originalitems of original">
         <div class="item-container">
         <mat-card>
-        <div>  Title: {{ originalitems.title }} </div>
-          <div>  Material: {{ originalitems.material }}</div>
-            <div>  Description: {{ originalitems.description }}</div>
-              <div>  Price: {{ originalitems.price }}</div>
-                <div>  Bild: {{ originalitems.image_data }}</div>
+          <div class="item-info">  Id: {{ originalitems.id }} </div>
+          <div class="item-info">  Title: {{ originalitems.title }} </div>
+          <div class="item-info">  Material: {{ originalitems.material }}</div>
+          <div class="item-info">  Description: {{ originalitems.description }}</div>
+          <div class="item-info">  Price €: {{ originalitems.price }}</div>
+          <div class="item-info">  Image: {{ originalitems.image_data }}</div>
         </mat-card>
         </div>
       </div>

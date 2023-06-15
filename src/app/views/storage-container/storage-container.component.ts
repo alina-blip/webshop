@@ -14,12 +14,13 @@ import { UploadComponent } from '../../components/upload/upload.component';
 })
 export class StorageContainerComponent implements OnInit {
   original$: Observable<Original[]> | undefined;
+  origin$: Observable<Original> | undefined;
 
   constructor(private originalService: OriginalService) {}
   ngOnInit() {
     this.original$ = this.originalService.getOriginal();
   }
   addToDatabase(original: Original) {
-    this.originalService.addOriginal(original);
+   this.origin$ = this.originalService.addOriginal(original);
   }
 }
