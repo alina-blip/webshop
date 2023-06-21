@@ -21,7 +21,7 @@ public class Original {
     private String description;
     private float price;
     @NotNull
-    private String image_data;
+    private String publicID;
 
     public long getId() {
         return id;
@@ -71,11 +71,11 @@ public class Original {
         this.price = price;
     }
 
-    public String getImage_data() {
-        return image_data;
+    public String getPublicID() {
+        return publicID;
     }
 
-    public void setImage_data(String image_data) {
-        this.image_data = image_data;
+    public void setPublicID(String publicID) {
+        this.publicID = publicID;
     }
 }
