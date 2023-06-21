@@ -4,6 +4,7 @@
   color: slategrey;
   padding-bottom: 25px;
   text-align: left;
+  margin-bottom: 100px;
 }
 
 .special-font {
@@ -14,4 +15,10 @@
 
 .container-main {
   padding: 25px;
+}
+
+.bodoni {
+  font-family: "bodoni-urw", serif;
+  font-size: 3em;
+  font-weight: 400;
 }

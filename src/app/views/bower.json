@@ -1,0 +1,20 @@
+{
+  "name": "views",
+  "homepage": "https://github.com/alina-blip/webshop",
+  "authors": [
+    "Alina Sorger <alina.sorger@ebcont.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cloudinary_ng": "1.x"
+  }
+}

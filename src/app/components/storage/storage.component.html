@@ -12,11 +12,16 @@
           <div class="item-info">  Material: {{ originalitems.material }}</div>
           <div class="item-info">  Description: {{ originalitems.description }}</div>
           <div class="item-info">  Price €: {{ originalitems.price }}</div>
-          <div class="item-info">  Image: {{ originalitems.image_data }}</div>
+          <div class="item-info">  Image: {{ originalitems.publicID}}</div>
+
+          <advanced-image [cldImg]="img"></advanced-image>
+
         </mat-card>
         </div>
       </div>
     </mat-card-content>
+
+
   </mat-card>
   </div>
 

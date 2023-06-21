@@ -4,7 +4,7 @@ import {ProductDetailComponent} from "../../components/product-detail/product-de
 import { ShopService } from '../../shop.service'
 
 @Component({
-  selector: 'app-product-detail-container',
+  selector: 'elw-product-detail-container',
   standalone: true,
   imports: [CommonModule, ProductDetailComponent],
   templateUrl: './product-detail-container.component.html',

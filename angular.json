@@ -34,7 +34,9 @@
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "https://upload-widget.cloudinary.com/global/all.js"
+            ]
           },
           "configurations": {
             "production": {
