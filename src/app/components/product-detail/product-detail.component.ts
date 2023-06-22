@@ -7,6 +7,7 @@ import { Product, ShopService } from '../../shop.service'
 import { MatListModule } from '@angular/material/list'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatGridListModule } from '@angular/material/grid-list'
+import { Original } from '../../original.service'
 
 @Component({
   selector: 'app-product-detail',
@@ -16,9 +17,12 @@ import { MatGridListModule } from '@angular/material/grid-list'
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
-  @Input() product: Product | null = null;
+  @Input() original: Original | null= null;
 
-  constructor(private route: ActivatedRoute, private shopService: ShopService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private shopService: ShopService
+  ) {}
 
   addToCart(product: Product) {
     this.shopService.addToCart(product);

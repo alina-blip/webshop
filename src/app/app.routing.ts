@@ -16,7 +16,7 @@ export const APP_ROUTES: Routes = [
       ),
   },
   { path: 'cart', component: CartContainerComponent },
-  { path: 'product', component: ProductDetailContainerComponent },
+  { path: 'product/:id', component: ProductDetailContainerComponent },
   { path: 'about', component: AboutContainerComponent },
   { path: 'works', component: WorksContainerComponent },
   { path: 'admin', component: AdminContainerComponent },

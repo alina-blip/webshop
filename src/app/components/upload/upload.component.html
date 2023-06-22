@@ -7,7 +7,7 @@
 <mat-form-field>
           <mat-label>Title: </mat-label>
           <label for="title"></label>
-        <input matInput id="title" type="text" formControlName="title" >
+        <input matInput id="title" type="text" formControlName="title" #title>
 </mat-form-field>
         </div>
         <div>
@@ -15,13 +15,13 @@
         <mat-label> Size:</mat-label>
           <label for="size"></label>
 
-          <input matInput id="size" type="text" formControlName="size">
+          <input matInput id="size" type="text" formControlName="size" #size>
 </mat-form-field>
         </div>
         <div>
           <mat-form-field>
           <mat-label> Material:</mat-label>
-          <label for="material"></label>
+          <label for="material"></label >
 
           <input matInput id="material" type="text" formControlName="material">
           </mat-form-field>
@@ -44,18 +44,12 @@
             </div>
           </mat-form-field>
         </div>
-      <p>Status: {{ originalControl.status }}</p>
-        <p>Value: {{ originalControl.value | json }}</p>
       </form>
-      <h3>Upload Image</h3>
       <button id="upload_widget" (click)="openWidget()" class="cloudinary-button">
         Upload Image and Save
       </button>
     </mat-card-content>
   </mat-card>
-
-
-  <advanced-image [cldImg]="img"></advanced-image>
 
 
 

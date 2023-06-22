@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { map, Observable } from 'rxjs'
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 
 export interface Original {
   id: number;
@@ -9,7 +9,7 @@ export interface Original {
   material: string;
   description: string;
   price: number;
-  publicID: string;
+  url: string;
 }
 
 @Injectable({
@@ -29,7 +29,7 @@ export class OriginalService {
             material: item.material,
             description: item.description,
             price: item.price,
-            publicID: item.publicID,
+            url: item.url,
           };
         });
       })
@@ -39,12 +39,19 @@ export class OriginalService {
     return this.http.post<Original>(`http://localhost:8080/original`, original);
   }
 
-  // addImagetoCloudinary(file: File): Observable<file>{
-  //   return this.http.post<>(`https://api.cloudinary.com/v1_1/dwrrcohl5/upload`)
-  // }
-
-  uploadSignature(vals: File): Observable<any>{
-    return this.http.post(`https://api.cloudinary.com/v1_1/dwrrcohl5/image/upload`, vals)
+  getOriginalById(id: number) {
+    return this.http.get<Original>(`http://localhost:8080/original/${id}`).pipe(
+      map((response) => {
+        return {
+          id: response.id,
+          title: response.title,
+          size: response.size,
+          material: response.material,
+          description: response.description,
+          price: response.price,
+          url: response.url,
+        };
+      })
+    );
   }
-
 }

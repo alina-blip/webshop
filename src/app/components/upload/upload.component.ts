@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'elw-upload',
@@ -31,6 +33,7 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
     MatButtonModule,
     MatInputModule,
     CloudinaryModule,
+    MatSnackBarModule,
   ],
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
@@ -49,6 +52,7 @@ export class UploadComponent implements OnInit {
 
   img!: CloudinaryImage;
   myWidget: any;
+
   ngOnInit() {
     // Create a Cloudinary instance and set your cloud name.
     const cld = new Cloudinary({
@@ -82,9 +86,9 @@ export class UploadComponent implements OnInit {
         (error: any, result: any) => {
           if (!error && result && result.event === 'success') {
             console.log('Done! Here is the image info: ', result.info);
-            console.log(result.info.public_id);
+            console.log(result.info.url);
             const formFields = structuredClone(this.originalControl.value);
-            formFields['publicID'] = result.info.public_id;
+            formFields['url'] = result.info.url;
             this.addToDatabase.emit(formFields as Original);
             console.log(formFields);
             const uploadedImage = document.getElementById('uploadedimage');

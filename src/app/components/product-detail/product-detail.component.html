@@ -1,7 +1,8 @@
-<div class="card-container">
+
+<div *ngIf="original" class="card-container">
   <div class="cards">
   <mat-card class="product-card">
-  <img mat-card-image src="assets/images/the_lucky_one.png" alt="the lucky one">
+  <img mat-card-image [src]="original.url" alt="{{ original.title }}">
 </mat-card>
 </div>
 
@@ -9,10 +10,11 @@
 <mat-card class="product-card">
   <mat-card-header>
 
-    <h1>the lucky one</h1>
-<!--    <mat-card-subtitle>Category: Print</mat-card-subtitle>-->
+    <h1>{{ original.title }}</h1>
+    <mat-card-subtitle>{{ original.material }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
+
 
     <h4>Limited edition of 46 signed prints</h4>
       <ul>
@@ -20,19 +22,15 @@
     <li>Art print of Fine Art Paper or Canvas</li>
     <li>Each print is numbered and hand-signed</li>
     <li>Hand-signed on front and back</li>
-  </ul>
+  </ul>{{ original.description }}
 
-    Choose a size:
-    <div>
-      <mat-radio-group aria-label="Select a size">
-        <mat-radio-button value="30 x 50">30 x 50 cm</mat-radio-button>
-        <mat-radio-button value="40 x 60">40 x 60 cm</mat-radio-button>
-      </mat-radio-group>
+
+    <div>Size: {{ original.size }}
     </div>
   </mat-card-content>
 <mat-divider></mat-divider>
   <mat-card-actions class="price-container">
-    <p class="price"> 70€ </p>
+    <p class="price">€ {{ original.price }} </p>
     <button mat-button>Add to Cart</button>
   </mat-card-actions>
 </mat-card>

@@ -12,10 +12,8 @@
           <div class="item-info">  Material: {{ originalitems.material }}</div>
           <div class="item-info">  Description: {{ originalitems.description }}</div>
           <div class="item-info">  Price €: {{ originalitems.price }}</div>
-          <div class="item-info">  Image: {{ originalitems.publicID}}</div>
-
-          <advanced-image [cldImg]="img"></advanced-image>
-
+          <div class="item-info">  Image: {{ originalitems.url}}</div>
+          <img alt="product-picture" [src]="originalitems.url" />
         </mat-card>
         </div>
       </div>
