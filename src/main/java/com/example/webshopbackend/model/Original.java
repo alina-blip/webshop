@@ -21,7 +21,7 @@ public class Original {
     private String description;
     private float price;
     @NotNull
-    private String publicID;
+    private String url;
 
     public long getId() {
         return id;
@@ -71,11 +71,11 @@ public class Original {
         this.price = price;
     }
 
-    public String getPublicID() {
-        return publicID;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPublicID(String publicID) {
-        this.publicID = publicID;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
