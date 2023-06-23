@@ -7,7 +7,7 @@ import { Observable } from 'rxjs'
 import { Original, OriginalService } from '../../original.service'
 
 @Component({
-  selector: 'app-products-container',
+  selector: 'elw-products-container',
   standalone: true,
   imports: [CommonModule, ProductsComponent, FooterComponent],
   templateUrl: './products-container.component.html',

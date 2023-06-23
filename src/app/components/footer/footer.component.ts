@@ -31,7 +31,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 @Component({
-  selector: 'app-footer',
+  selector: 'elw-footer',
   standalone: true,
   imports: [
     CommonModule,

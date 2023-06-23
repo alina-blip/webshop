@@ -9,8 +9,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CloudinaryModule } from '@cloudinary/ng';
-import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
-import { fill } from '@cloudinary/url-gen/actions/resize';
 
 @Component({
   selector: 'elw-root',
@@ -30,10 +28,6 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
   styleUrls: ['./app.component.scss'],
   standalone: true,
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'webshop';
-
-  // cloudinary.setCloudName('');
-
-
 }

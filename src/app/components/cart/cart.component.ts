@@ -1,32 +1,30 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../shop.service'
-
+import { Original } from '../../original.service';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'elw-cart',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-
-  @Input() items: Product[] = [];
+  @Input() items: Original[] = [];
   @Output() clearCart = new EventEmitter<void>();
-  @Output() decrementCount: EventEmitter<Product> = new EventEmitter<Product>();
-  @Output() incrementCount: EventEmitter<Product> = new EventEmitter<Product>();
-
+  @Output() decrementCount: EventEmitter<Original> =
+    new EventEmitter<Original>();
+  @Output() incrementCount: EventEmitter<Original> =
+    new EventEmitter<Original>();
 
   emitClearCart() {
     this.clearCart.emit();
   }
-  emitDecrementCount(product: Product) {
-    this.decrementCount.emit(product);
+  emitDecrementCount(original: Original) {
+    this.decrementCount.emit(original);
   }
 
-  emitIncrementCount(product: Product) {
-    this.incrementCount.emit(product);
+  emitIncrementCount(original: Original) {
+    this.incrementCount.emit(original);
   }
-
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from '../../components/admin/admin.component'
 
 @Component({
-  selector: 'app-admin-container',
+  selector: 'elw-admin-container',
   standalone: true,
   imports: [CommonModule, AdminComponent],
   templateUrl: './admin-container.component.html',
