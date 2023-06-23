@@ -23,15 +23,13 @@
     <li>Each print is numbered and hand-signed</li>
     <li>Hand-signed on front and back</li>
   </ul>{{ original.description }}
-
-
     <div>Size: {{ original.size }}
     </div>
   </mat-card-content>
 <mat-divider></mat-divider>
   <mat-card-actions class="price-container">
     <p class="price">€ {{ original.price }} </p>
-    <button mat-button>Add to Cart</button>
+    <button mat-button (click)="addToCartEmit()">Add to Cart</button>
   </mat-card-actions>
 </mat-card>
 </div>

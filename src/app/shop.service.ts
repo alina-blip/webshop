@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Original } from './original.service'
 
 export interface Product {
-  id: string | '1';
-  title: string | 'name';
-  size: string;
-  material: string;
-  description: string;
-  price: number | 5;
-  image_url: string | 'url';
+  original: Original;
   inventory_count: number;
   cart_count: number;
-  date: string;
+  date_of_purchase: string;
+  category: Category;
 }
 
 export enum Category {
@@ -23,13 +19,13 @@ export enum Category {
   providedIn: 'root',
 })
 export class ShopService {
-  items: Product[] = [];
+  items: Original[] = [];
 
-  addToCart(product: Product) {
-    if (this.isNameInCart(product)) {
-      this.sumCount(product);
+  addToCart(original: Original) {
+    if (this.isNameInCart(original)) {
+      // this.sumCount(original);
     } else {
-      this.items = [...this.items, product];
+      this.items = [...this.items, original];
       console.log(this.items);
       return;
     }
@@ -44,16 +40,16 @@ export class ShopService {
     return this.items;
   }
 
-  isNameInCart(product: Product) {
-    return this.items.some((item) => product.title === item.title);
+  isNameInCart(original: Original) {
+    return this.items.some((item) => original.title === item.title);
   }
-  sumCount(product: Product) {
-    this.items = this.items.map((item) => {
-      if (item.title === product.title && item.cart_count > 0) {
-        return { ...item, count: item.cart_count + product.cart_count };
-      } else {
-        return item;
-      }
-    });
-  }
+  // sumCount(original: Original) {
+  //   this.items = this.items.map((item) => {
+  //     if (item.title === original.title && item.cart_count > 0) {
+  //       return { ...item, count: item.cart_count + original.cart_count };
+  //     } else {
+  //       return item;
+  //     }
+  //   });
+  // }
 }

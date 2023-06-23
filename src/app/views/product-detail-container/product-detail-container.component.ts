@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from '../../components/product-detail/product-detail.component';
 import { ShopService } from '../../shop.service';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs'
 import { Original, OriginalService } from '../../original.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -27,5 +27,8 @@ export class ProductDetailContainerComponent implements OnInit {
         return this.originalService.getOriginalById(Number(params.get('id')));
       })
     );
+  }
+  addToCart(original: Original){
+    this.shopService.addToCart(original);
   }
 }

@@ -4,7 +4,6 @@ import {
   Input,
   Output,
   OnInit,
-  ElementRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -33,7 +31,6 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatInputModule,
     CloudinaryModule,
-    MatSnackBarModule,
   ],
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
@@ -54,14 +51,11 @@ export class UploadComponent implements OnInit {
   myWidget: any;
 
   ngOnInit() {
-    // Create a Cloudinary instance and set your cloud name.
     const cld = new Cloudinary({
       cloud: {
         cloudName: 'dwrrcohl5',
       },
     });
-
-    // Instantiate a CloudinaryImage object for the image with the public ID, 'docs/models'.
     this.img = cld.image('');
     // Resize to 250 x 250 pixels using the 'fill' crop mode.
     this.img.resize(fill().width(250).height(350));
@@ -70,7 +64,6 @@ export class UploadComponent implements OnInit {
     script.type = 'text/javascript';
     script.async = true;
     document.body.appendChild(script);
-
     script.onload = () => {
       this.initializeWidget();
     };

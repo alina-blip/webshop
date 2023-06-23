@@ -12,7 +12,7 @@ import { Cloudinary } from '@cloudinary/url-gen'
   templateUrl: './storage.component.html',
   styleUrls: ['./storage.component.scss'],
 })
-export class StorageComponent implements OnInit{
+export class StorageComponent implements OnInit {
   @Input() original: Original[] | null = null;
   cld: Cloudinary | undefined;
   ngOnInit() {

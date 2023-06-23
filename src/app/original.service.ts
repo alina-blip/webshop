@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 export interface Original {
   id: number;
@@ -36,9 +36,10 @@ export class OriginalService {
     );
   }
   addOriginal(original: Original): Observable<Original> {
-    return this.http.post<Original>(`http://localhost:8080/original`, original);
+    return this.http
+      .post<Original>(`http://localhost:8080/original`, original)
+      .pipe(tap(() => window.alert('Upload finished.')));
   }
-
   getOriginalById(id: number) {
     return this.http.get<Original>(`http://localhost:8080/original/${id}`).pipe(
       map((response) => {
