@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Original } from '../../original.service';
+import { Product } from '../../shop.service'
 
 @Component({
   selector: 'elw-product-detail',
@@ -22,13 +23,14 @@ import { Original } from '../../original.service';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent {
+  @Input() product: Product | null = null;
   @Input() original: Original | null = null;
+
   @Output() addToCart: EventEmitter<Original> = new EventEmitter<Original>();
 
   addToCartEmit() {
     if (this.original) {
       this.addToCart.emit(this.original);
-      window.alert('Your product has been added to the cart!');
     }
   }
 }

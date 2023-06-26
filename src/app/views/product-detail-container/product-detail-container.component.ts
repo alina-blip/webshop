@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from '../../components/product-detail/product-detail.component';
-import { ShopService } from '../../shop.service';
+import { Product, ShopService } from '../../shop.service'
 import { Observable, switchMap } from 'rxjs'
 import { Original, OriginalService } from '../../original.service';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +14,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-detail-container.component.scss'],
 })
 export class ProductDetailContainerComponent implements OnInit {
+  product$: Observable<Product> | undefined;
   original$: Observable<Original> | undefined;
+
   constructor(
     private shopService: ShopService,
     private originalService: OriginalService,
@@ -28,7 +30,7 @@ export class ProductDetailContainerComponent implements OnInit {
       })
     );
   }
-  addToCart(original: Original){
+  addToCart(original: Original) {
     this.shopService.addToCart(original);
   }
 }

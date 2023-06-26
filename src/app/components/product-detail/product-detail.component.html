@@ -1,17 +1,23 @@
 
-<div *ngIf="original" class="card-container">
+<div *ngIf="original
+" class="card-container">
   <div class="cards">
-  <mat-card class="product-card">
-  <img mat-card-image [src]="original.url" alt="{{ original.title }}">
+  <mat-card class="original
+  -card">
+  <img mat-card-image [src]="original.url" alt="{{ original
+  .title }}">
 </mat-card>
 </div>
 
 <div class="cards">
-<mat-card class="product-card">
+<mat-card class="original
+-card">
   <mat-card-header>
 
-    <h1>{{ original.title }}</h1>
-    <mat-card-subtitle>{{ original.material }}</mat-card-subtitle>
+    <h1>{{ original
+      .title }}</h1>
+    <mat-card-subtitle>{{ original
+      .material }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
 
@@ -22,13 +28,16 @@
     <li>Art print of Fine Art Paper or Canvas</li>
     <li>Each print is numbered and hand-signed</li>
     <li>Hand-signed on front and back</li>
-  </ul>{{ original.description }}
-    <div>Size: {{ original.size }}
+  </ul>{{ original
+    .description }}
+    <div>Size: {{ original
+      .size }}
     </div>
   </mat-card-content>
 <mat-divider></mat-divider>
   <mat-card-actions class="price-container">
-    <p class="price">€ {{ original.price }} </p>
+    <p class="price">€ {{ original
+      .price }} </p>
     <button mat-button (click)="addToCartEmit()">Add to Cart</button>
   </mat-card-actions>
 </mat-card>

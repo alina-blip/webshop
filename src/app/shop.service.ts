@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Original } from './original.service'
+import { Original } from './original.service';
 
 export interface Product {
   original: Original;
   inventory_count: number;
   cart_count: number;
-  date_of_purchase: string;
-  category: Category;
+}
+
+export interface Cart {
+  items: Product[];
+  total: number;
+  date: string;
 }
 
 export enum Category {
@@ -19,37 +23,120 @@ export enum Category {
   providedIn: 'root',
 })
 export class ShopService {
-  items: Original[] = [];
+  items: Product[] = [];
+  cart: Cart = {
+    items: [],
+    total: 0,
+    date: '',
+  }
 
   addToCart(original: Original) {
-    if (this.isNameInCart(original)) {
-      // this.sumCount(original);
+    const product: Product = {
+      original: original,
+      inventory_count: 1,
+      cart_count: 1,
+    };
+    if (this.isNameInCart(product)) {
+      this.sumCount(product);
     } else {
-      this.items = [...this.items, original];
+      this.items = [...this.items, product];
       console.log(this.items);
       return;
     }
+    this.calculateTotal();
+    console.log(this.cart);
+  }
+  calculateTotal() {
+    this.cart.total = this.items.reduce(
+      (total, item) => total + item.original.price * item.cart_count,
+      0
+    );
+    console.log(this.cart);
+    this.saveCart();
   }
 
   getItems() {
     return this.items;
   }
 
-  clearCart() {
-    this.items = [];
-    return this.items;
+  clearCart(product: Product) {
+    this.items = this.items
+      .map((item) => {
+        if (
+          item.original.title === product.original.title &&
+          item.cart_count > 0
+        ) {
+          return { ...item, cart_count: (item.cart_count = 0) };
+        } else {
+          return item;
+        }
+      })
+      .filter((item: Product) => item.cart_count !== 0);
+    this.calculateTotal();
+    this.saveCart();
+    console.log(this.items);
+  }
+  decrementCount(product: Product) {
+    this.items = this.items
+      .map((item) => {
+        if (
+          item.original.title === product.original.title &&
+          item.cart_count > 0
+        ) {
+          return { ...item, cart_count: item.cart_count - 1 };
+        } else {
+          return item;
+        }
+      })
+      .filter((item: Product) => item.cart_count !== 0);
+    this.calculateTotal();
+    this.saveCart();
+    console.log(this.items);
   }
 
-  isNameInCart(original: Original) {
-    return this.items.some((item) => original.title === item.title);
+  incrementCount(product: Product) {
+    this.items = this.items
+      .map((item) => {
+        if (
+          item.original.title === product.original.title &&
+          item.cart_count > 0
+        ) {
+          return { ...item, cart_count: item.cart_count + 1 };
+        } else {
+          return item;
+        }
+      })
+      .filter((item: Product) => item.cart_count !== 0);
+    this.calculateTotal();
+    this.saveCart();
+    console.log(this.items);
   }
-  // sumCount(original: Original) {
-  //   this.items = this.items.map((item) => {
-  //     if (item.title === original.title && item.cart_count > 0) {
-  //       return { ...item, count: item.cart_count + original.cart_count };
-  //     } else {
-  //       return item;
-  //     }
-  //   });
-  // }
+  isNameInCart(product: Product) {
+    return this.items.some(
+      (item) => product.original.title === item.original.title
+    );
+  }
+  sumCount(product: Product) {
+    this.items = this.items.map((item) => {
+      if (
+        item.original.title === product.original.title &&
+        item.original.price > 0
+      ) {
+        return { ...item, cart_count: item.cart_count + product.cart_count };
+      } else {
+        return item;
+      }
+    });
+  }
+
+  saveCart() {
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  loadCart() {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      this.cart = JSON.parse(savedCart);
+    }
+  }
 }

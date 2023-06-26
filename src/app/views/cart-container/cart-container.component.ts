@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { CartComponent } from '../../components/cart/cart.component';
-import { ShopService } from '../../shop.service'
+import { Cart, Product, ShopService } from '../../shop.service'
 import { Original } from '../../original.service'
 
 @Component({
@@ -11,11 +11,32 @@ import { Original } from '../../original.service'
   templateUrl: './cart-container.component.html',
   styleUrls: ['./cart-container.component.scss'],
 })
-export class CartContainerComponent {
+export class CartContainerComponent implements OnInit{
 
-  constructor (private shopService: ShopService) {}
+  constructor (private shopService: ShopService) {
+  }
 
-  get items(): Original[] {
-    return this.shopService.items;
+  get items(): Product[] {
+    this.shopService.loadCart();
+    return this.shopService.getItems();
+  }
+
+  get cart(): Cart {
+    return this.shopService.cart;
+  }
+
+  clearCart(product: Product) {
+    this.shopService.clearCart(product);
+  }
+  decrementCount(product: Product) {
+    this.shopService.decrementCount(product);
+  }
+  incrementCount(product: Product) {
+    this.shopService.incrementCount(product);
+  }
+
+  ngOnInit () {
+    this.shopService.loadCart();
+    console.log(this.items);
   }
 }
