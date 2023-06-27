@@ -11,4 +11,5 @@ public interface OriginalService {
     List<Original> findAll();
 
     Optional<Original> findById(Long id);
+
 }

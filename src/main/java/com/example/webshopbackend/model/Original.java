@@ -1,8 +1,5 @@
 package com.example.webshopbackend.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -22,6 +19,10 @@ public class Original {
     private float price;
     @NotNull
     private String url;
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
+    private long quantity;
 
     public long getId() {
         return id;
@@ -78,4 +79,21 @@ public class Original {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+    public long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
+    }
+
 }
+

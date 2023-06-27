@@ -16,6 +16,7 @@ public class Cart {
     @Enumerated(EnumType.STRING)
     private Category category;
     private String size;
+
     private int count;
     private LocalDate date;
 
@@ -74,4 +75,6 @@ public class Cart {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 }
+
