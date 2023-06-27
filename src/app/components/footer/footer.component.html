@@ -36,22 +36,26 @@
     <ul class="footer-list">
       <h2>Info</h2>
       <li><a [routerLink]="['/about']">ABOUT</a></li>
-      <li><a href="">FAQs</a></li>
-      <li><a href="">CONTACT</a></li>
+      <li><a [routerLink]="['/faqs']">FAQs</a></li>
+      <li><a [routerLink]="['/contact']">CONTACT</a></li>
     </ul>
 
-    <ul class="footer-list">
-      <h2>Store</h2>
-      <li><a href="">ORIGINALS</a></li>
-      <li><a [routerLink]="['']">PRINTS</a></li>
-      <li><a [routerLink]="['/products']" >ALL</a></li>
-    </ul>
+<!--    <ul class="footer-list">-->
+<!--      <h2>Store</h2>-->
+<!--      <li><a>-->
+<!--&lt;!&ndash;        [routerLink]="['/products']" [queryParams]="{ category: 'ORIGINAL' }">ORIGINALS&ndash;&gt;-->
+<!--      </a></li>-->
+<!--      <li><a>-->
+<!--&lt;!&ndash;        [routerLink]="['/products']" [queryParams]="{ category: 'PRINT' }">PRINTS&ndash;&gt;-->
+<!--      </a></li>-->
+<!--      <li><a [routerLink]="['/products']" >ALL</a></li>-->
+<!--    </ul>-->
 
         <ul class="footer-list">
           <h2>CLUB </h2>
-          <li><a href="">Login</a></li>
-          <li><a href="">Join us!</a></li>
-          <li><a href="">About the club</a></li>
+          <li><a [routerLink]="['/login']">Login</a></li>
+          <li><a [routerLink]="['/login']">Register</a></li>
+          <li><a></a></li>
         </ul>
       </div>
     </div>

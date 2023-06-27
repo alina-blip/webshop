@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { Category } from '../../original.service'
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -55,4 +56,5 @@ export class FooterComponent {
   ]);
 
   matcher = new MyErrorStateMatcher();
+
 }
