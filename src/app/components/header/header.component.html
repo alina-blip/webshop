@@ -7,7 +7,7 @@
   <div class="main-navigation">
   <a [routerLink]="['/works']">Works </a>
   <span class="side-spacer"></span>
-  <a  [routerLink]="['/products']">Shop</a>
+  <a  [routerLink]="['/products']" (click)="reloadPage()" >Shop</a>
   <span class="side-spacer"></span>
   <a [routerLink]="['/about']" >About</a>
   <span class="side-spacer"></span>
