@@ -5,6 +5,7 @@ import { OriginalService, Original } from '../../original.service';
 import { Observable } from 'rxjs';
 import { UploadComponent } from '../../components/upload/upload.component';
 import { Router } from '@angular/router';
+import { none } from '@cloudinary/url-gen/qualifiers/audioCodec'
 
 @Component({
   selector: 'elw-storage-container',
