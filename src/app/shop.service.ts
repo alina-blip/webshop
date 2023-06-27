@@ -13,11 +13,11 @@ export interface Cart {
   date: string;
 }
 
-export enum Category {
-  ORIGINAL,
-  PRINT,
-  STICKER,
-}
+// export enum Category {
+//   ORIGINAL,
+//   PRINT,
+//   STICKER,
+// }
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +28,7 @@ export class ShopService {
     items: [],
     total: 0,
     date: '',
-  }
+  };
 
   addToCart(original: Original) {
     const product: Product = {
@@ -43,8 +43,6 @@ export class ShopService {
       console.log(this.items);
       return;
     }
-    this.calculateTotal();
-    console.log(this.cart);
   }
   calculateTotal() {
     this.cart.total = this.items.reduce(
@@ -130,6 +128,7 @@ export class ShopService {
   }
 
   saveCart() {
+    this.cart.items = this.items;
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
@@ -137,6 +136,7 @@ export class ShopService {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       this.cart = JSON.parse(savedCart);
+      this.items = this.cart.items;
     }
   }
 }
