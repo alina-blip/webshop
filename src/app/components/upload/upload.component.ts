@@ -1,25 +1,15 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  OnInit,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { Original } from '../../original.service';
-import { MatInputModule } from '@angular/material/input';
-import { CloudinaryModule } from '@cloudinary/ng';
-import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
-import { fill } from '@cloudinary/url-gen/actions/resize';
-
+import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { MatCardModule } from '@angular/material/card'
+import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
+import { Original } from '../../original.service'
+import { MatInputModule } from '@angular/material/input'
+import { CloudinaryModule } from '@cloudinary/ng'
+import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen'
+import { fill } from '@cloudinary/url-gen/actions/resize'
+import { Category} from '../../original.service';
+import { MatSelectModule } from '@angular/material/select'
 
 @Component({
   selector: 'elw-upload',
@@ -31,6 +21,7 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
     MatButtonModule,
     MatInputModule,
     CloudinaryModule,
+    MatSelectModule,
   ],
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
@@ -39,12 +30,17 @@ export class UploadComponent implements OnInit {
   @Output() addToDatabase: EventEmitter<Original> =
     new EventEmitter<Original>();
   @Input() origin: Original | null = null;
+  @Input() category: Category | null = null;
   originalControl = new FormGroup({
     title: new FormControl('', [Validators.required]),
     size: new FormControl('', [Validators.required]),
     material: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    price: new FormControl(0, [Validators.required])
+    price: new FormControl(0, [Validators.required]),
+    quantity: new FormControl(1, [Validators.required]),
+    category: new FormControl<Category>(Category.ORIGINAL, [
+      Validators.required,
+    ]),
   });
 
   img!: CloudinaryImage;
@@ -68,6 +64,21 @@ export class UploadComponent implements OnInit {
       this.initializeWidget();
     };
   }
+  categories: Category[] = Object.values(Category) as Category[]; // Specify the type as Category[]
+
+  getCategoryLabel(category: Category): string {
+    switch (category) {
+      case Category.ORIGINAL:
+        return 'Original';
+      case Category.PRINT:
+        return 'Print';
+      case Category.STICKER:
+        return 'Sticker';
+      default:
+        return '';
+    }
+  }
+
   initializeWidget() {
     const cloudinary = (window as any).cloudinary;
     if (cloudinary) {

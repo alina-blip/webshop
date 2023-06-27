@@ -43,7 +43,21 @@
               <input matInput id="price" type="text" formControlName="price">
             </div>
           </mat-form-field>
+          <mat-form-field>
+            <mat-label> Category:</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let category of categories" [value]="category">{{ getCategoryLabel(category) }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+          <mat-label> Quantity:</mat-label>
+          <div>
+            <label for="quantity"></label>
+            <input matInput id="quantity" type="number" formControlName="quantity">
+          </div>
+          </mat-form-field>
         </div>
+        {{ originalControl.value | json}}
       </form>
       <button id="upload_widget" (click)="openWidget()" class="cloudinary-button">
         Upload Image and Save
