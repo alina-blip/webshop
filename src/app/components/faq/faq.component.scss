@@ -1,0 +1,20 @@
+.about-container {
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+@media (max-width: 800px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.about-text {
+  max-width: 650px;
+}
