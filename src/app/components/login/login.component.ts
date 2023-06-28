@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'elw-login',
@@ -17,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
+    RouterLink,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
