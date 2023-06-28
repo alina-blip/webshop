@@ -10,7 +10,7 @@ public class Cart {
     private long id;
 
     @ManyToOne
-    private Customer customer;
+    private User user;
     @ManyToOne
     private Original original;
     @Enumerated(EnumType.STRING)
@@ -28,12 +28,12 @@ public class Cart {
         this.id = id;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public User getUser() {
+        return user;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Original getOriginal() {

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class Customer {
+public class User {
     @Id
     @GeneratedValue
     private long id;
@@ -26,6 +26,17 @@ public class Customer {
     @NotBlank
     @Email
     private String mail;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @NotBlank
+    private String password;
 
     public Long getId() {
         return id;
