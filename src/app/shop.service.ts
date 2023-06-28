@@ -13,12 +13,6 @@ export interface Cart {
   date: string;
 }
 
-// export enum Category {
-//   ORIGINAL,
-//   PRINT,
-//   STICKER,
-// }
-
 @Injectable({
   providedIn: 'root',
 })

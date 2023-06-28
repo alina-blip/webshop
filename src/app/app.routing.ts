@@ -7,6 +7,7 @@ import { LoginContainerComponent } from './views/login-container/login-container
 import { StorageContainerComponent } from './views/storage-container/storage-container.component';
 import { ContactContainerComponent } from './views/contact-container/contact-container.component'
 import { FaqContainerComponent } from './views/faq-container/faq-container.component'
+import { RegistrationContainerComponent } from './views/registration-container/registration-container.component'
 
 export const APP_ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '' },
@@ -24,6 +25,8 @@ export const APP_ROUTES: Routes = [
   { path: 'login', component: LoginContainerComponent },
   { path: 'upload', component: StorageContainerComponent },
   { path: 'contact', component: ContactContainerComponent },
-  { path: 'faqs', component: FaqContainerComponent }
+  { path: 'faqs', component: FaqContainerComponent },
+  { path: 'register', component: RegistrationContainerComponent }
+
 
 ];
