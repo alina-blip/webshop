@@ -8,9 +8,11 @@ import { StorageContainerComponent } from './views/storage-container/storage-con
 import { ContactContainerComponent } from './views/contact-container/contact-container.component'
 import { FaqContainerComponent } from './views/faq-container/faq-container.component'
 import { RegistrationContainerComponent } from './views/registration-container/registration-container.component'
+import { LegalNoticeContainerComponent } from './views/legal-notice-container/legal-notice-container.component'
+import { UserContainerComponent } from './views/user-container/user-container.component'
 
 export const APP_ROUTES: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '' },
+  { path: '', pathMatch: 'full', redirectTo: '/works' },
   {
     path: 'products',
     loadComponent: () =>
@@ -26,7 +28,10 @@ export const APP_ROUTES: Routes = [
   { path: 'upload', component: StorageContainerComponent },
   { path: 'contact', component: ContactContainerComponent },
   { path: 'faqs', component: FaqContainerComponent },
-  { path: 'register', component: RegistrationContainerComponent }
+  { path: 'register', component: RegistrationContainerComponent },
+  { path: 'legal-notice', component: LegalNoticeContainerComponent},
+  { path: 'user', component: UserContainerComponent},
+
 
 
 ];
