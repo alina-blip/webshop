@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from '../../components/login/login.component'
+import { LoginData, UserService } from '../../user.service'
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'elw-login-container',
@@ -11,4 +13,10 @@ import { LoginComponent } from '../../components/login/login.component'
 })
 export class LoginContainerComponent {
 
+  loginData$: Observable<LoginData> | undefined;
+  constructor (private userService: UserService) {
+  }
+  login(loginData: LoginData) {
+    this.loginData$ = this.userService.login(loginData);
+  }
 }
