@@ -1,0 +1,17 @@
+<div class="about-container">
+  <div class="about-text">
+    <br>
+    <br>
+    <div *ngIf="user">
+    <h1>Welcome {{ user.name }}</h1>
+    <br>
+
+    <h2>Mail:</h2>
+    <p> {{ user.mail }}</p>
+    <h2>Housenumber:</h2>
+    <p> {{ user.housenumber }}</p>
+
+    </div>
+
+  </div>
+</div>
