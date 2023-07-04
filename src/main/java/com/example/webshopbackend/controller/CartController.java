@@ -1,10 +1,8 @@
 package com.example.webshopbackend.controller;
-
 import com.example.webshopbackend.model.Cart;
 import com.example.webshopbackend.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface OriginalRepository  extends JpaRepository<Original, Long> {
-
     @Override
     List<Original> findAll();
 
