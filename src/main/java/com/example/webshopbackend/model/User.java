@@ -1,10 +1,13 @@
 package com.example.webshopbackend.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import org.mindrot.jbcrypt.BCrypt;
+
 
 @Entity
 public class User {
@@ -23,9 +26,12 @@ public class User {
     private String postalcode;
     @NotBlank
     private String country;
-    @NotBlank
     @Email
-    private String mail;
+    @NotBlank
+    @Column(unique = true)
+    private String email;
+    @NotBlank(message = "Password must not be blank")
+    private String password;
 
     public String getPassword() {
         return password;
@@ -34,9 +40,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @NotBlank
-    private String password;
 
     public Long getId() {
         return id;
@@ -94,12 +97,12 @@ public class User {
         this.country = country;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 

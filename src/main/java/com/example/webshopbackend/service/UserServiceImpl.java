@@ -2,6 +2,7 @@ package com.example.webshopbackend.service;
 
 import com.example.webshopbackend.model.User;
 import com.example.webshopbackend.repository.UserRepository;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ private final UserRepository repository;
 
     @Override
     public User save(User user) {
+        String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        user.setPassword(hashedPassword);
         return repository.save(user);
     }
 
@@ -24,6 +27,9 @@ private final UserRepository repository;
     public List<User> findAll() {
         return repository.findAll();
     }
-
+    @Override
+    public User findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
 
 }
