@@ -1,2 +1,2 @@
-<elw-storage [original]="original$ | async" ></elw-storage>
-<elw-upload (addToDatabase)="addToDatabase($event)" [origin]="origin$ | async"></elw-upload>
+<elw-storage [original]="original$ | async"  ></elw-storage>
+<elw-admin (addToDatabase)="addToDatabase($event)" [origin]="origin$ | async" (updateProduct)="updateProduct($event)" (deleteProduct)="deleteProduct($event)"></elw-admin>

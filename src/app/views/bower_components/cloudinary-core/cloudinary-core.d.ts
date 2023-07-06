@@ -615,7 +615,7 @@ export class Cloudinary {
      * @param {string} publicId - the public ID of the resource
      * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
      *                          and {@link Configuration} parameters
-     * @param {string} [options.type='upload'] - the classification of the resource
+     * @param {string} [options.type='admin'] - the classification of the resource
      * @param {Object} [options.resource_type='image'] - the type of the resource
      * @return {string} The resource URL
      */
@@ -627,7 +627,7 @@ export class Cloudinary {
      * @param {string} publicId - the public ID of the resource
      * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
      *                          and {@link Configuration} parameters
-     * @param {string} [options.type='upload'] - the classification of the resource
+     * @param {string} [options.type='admin'] - the classification of the resource
      * @return {string} The video URL
      */
     video_url(publicId: string, options?: Transformation | Transformation.VideoOptions): string;
@@ -647,7 +647,7 @@ export class Cloudinary {
      * @param {string} publicId - the public ID of the resource
      * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
      *                          and {@link Configuration} parameters
-     * @param {string} [options.type='upload'] - the classification of the resource
+     * @param {string} [options.type='admin'] - the classification of the resource
      * @return {string} The video thumbnail URL
      */
     video_thumbnail_url(publicId: string, options?: Transformation | Transformation.VideoOptions): string;

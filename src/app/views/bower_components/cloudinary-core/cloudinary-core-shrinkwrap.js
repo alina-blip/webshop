@@ -5917,7 +5917,7 @@ function () {
      * @param {string} publicId - the public ID of the resource
      * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
      *                          and {@link Configuration} parameters
-     * @param {string} [options.type='upload'] - the classification of the resource
+     * @param {string} [options.type='admin'] - the classification of the resource
      * @param {Object} [options.resource_type='image'] - the type of the resource
      * @return {string} The resource URL
      */
@@ -5931,7 +5931,7 @@ function () {
      * @param {string} publicId - the public ID of the resource
      * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
      *                          and {@link Configuration} parameters
-     * @param {string} [options.type='upload'] - the classification of the resource
+     * @param {string} [options.type='admin'] - the classification of the resource
      * @return {string} The video URL
      */
 
@@ -5949,7 +5949,7 @@ function () {
      * @param {string} publicId - the public ID of the resource
      * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
      *                          and {@link Configuration} parameters
-     * @param {string} [options.type='upload'] - the classification of the resource
+     * @param {string} [options.type='admin'] - the classification of the resource
      * @return {string} The video thumbnail URL
      */
 
@@ -10518,7 +10518,7 @@ function cloudinaryUrlPrefix(publicId, options) {
  * Return the resource type and action type based on the given configuration
  * @function Cloudinary#finalizeResourceType
  * @param {Object|string} resourceType
- * @param {string} [type='upload']
+ * @param {string} [type='admin']
  * @param {string} [urlSuffix]
  * @param {boolean} [useRootPath]
  * @param {boolean} [shorten]
@@ -10564,7 +10564,7 @@ function finalizeResourceType() {
       resourceType = null;
       type = null;
     } else {
-      throw new Error("Root path only supported for image/upload");
+      throw new Error("Root path only supported for image/admin");
     }
   }
 
@@ -10581,7 +10581,7 @@ function finalizeResourceType() {
  * @param {string} publicId - the public ID of the resource
  * @param {Object} [options] - options for the tag and transformations, possible values include all {@link Transformation} parameters
  *                          and {@link Configuration} parameters
- * @param {string} [options.type='upload'] - the classification of the resource
+ * @param {string} [options.type='admin'] - the classification of the resource
  * @param {Object} [options.resource_type='image'] - the type of the resource
  * @param {Object} [config] URL configuration
  * @return {string} The resource URL

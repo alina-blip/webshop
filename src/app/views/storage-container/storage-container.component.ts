@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { StorageComponent } from '../../components/storage/storage.component';
 import { OriginalService, Original } from '../../original.service';
 import { Observable } from 'rxjs';
-import { UploadComponent } from '../../components/upload/upload.component';
+import { AdminComponent } from '../../components/admin/admin.component';
 import { Router } from '@angular/router';
-import { none } from '@cloudinary/url-gen/qualifiers/audioCodec'
+
 
 @Component({
   selector: 'elw-storage-container',
   standalone: true,
-  imports: [CommonModule, StorageComponent, UploadComponent],
+  imports: [CommonModule, StorageComponent, AdminComponent],
   templateUrl: './storage-container.component.html',
   styleUrls: ['./storage-container.component.scss'],
 })
@@ -27,5 +27,13 @@ export class StorageContainerComponent implements OnInit {
   }
   addToDatabase(original: Original) {
     this.origin$ = this.originalService.addOriginal(original);
+  }
+
+  updateProduct(original: Original) {
+    this.origin$ = this.originalService.updateOriginal(original);
+  }
+
+  deleteProduct(original: Original) {
+    this.origin$ = this.originalService.deleteOriginal(original);
   }
 }

@@ -25,7 +25,7 @@ export const APP_ROUTES: Routes = [
   { path: 'about', component: AboutContainerComponent },
   { path: 'works', component: WorksContainerComponent },
   { path: 'login', component: LoginContainerComponent },
-  { path: 'upload', component: StorageContainerComponent },
+  { path: 'admin', component: StorageContainerComponent },
   { path: 'contact', component: ContactContainerComponent },
   { path: 'faqs', component: FaqContainerComponent },
   { path: 'register', component: RegistrationContainerComponent },

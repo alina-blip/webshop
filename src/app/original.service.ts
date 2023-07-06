@@ -112,4 +112,16 @@ export class OriginalService {
       })
     );
   }
+  updateOriginal(original: Original): Observable<Original> {
+    const id = original.id;
+    return this.http.put<Original>(
+      `http://localhost:8080/original/${id}`,
+      original
+    );
+  }
+  deleteOriginal(original: Original): Observable<Original> {
+    const id = original.id;
+    return this.http.delete<Original>(`http://localhost:8080/original/${id}`
+    );
+  }
 }

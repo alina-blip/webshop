@@ -12,7 +12,7 @@ import { Category} from '../../original.service';
 import { MatSelectModule } from '@angular/material/select'
 
 @Component({
-  selector: 'elw-upload',
+  selector: 'elw-admin',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,15 +23,20 @@ import { MatSelectModule } from '@angular/material/select'
     CloudinaryModule,
     MatSelectModule,
   ],
-  templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.scss'],
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss'],
 })
-export class UploadComponent implements OnInit {
+export class AdminComponent implements OnInit {
   @Output() addToDatabase: EventEmitter<Original> =
     new EventEmitter<Original>();
   @Input() origin: Original | null = null;
   @Input() category: Category | null = null;
+  @Output() updateProduct: EventEmitter<Original> = new EventEmitter<Original>;
+  @Output() deleteProduct: EventEmitter<Original> = new EventEmitter<Original>;
+
+
   originalControl = new FormGroup({
+    id: new FormControl(0),
     title: new FormControl('', [Validators.required]),
     size: new FormControl('', [Validators.required]),
     material: new FormControl('', [Validators.required]),
@@ -106,5 +111,13 @@ export class UploadComponent implements OnInit {
   }
   openWidget() {
     this.myWidget.open();
+  }
+
+  update() {
+    this.updateProduct.emit(this.originalControl.value as Original);
+  }
+
+  delete(){
+    this.deleteProduct.emit(this.originalControl.value as Original);
   }
 }
