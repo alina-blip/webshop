@@ -30,6 +30,10 @@ class OriginalServiceImpl implements OriginalService {
     public Optional<Original> findById(Long id) {
         return repository.findById(id);
     }
+    @Override
+    public void delete(Original original) {
+        repository.delete(original);
+    }
 
 
 }

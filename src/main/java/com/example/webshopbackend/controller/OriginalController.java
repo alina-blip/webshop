@@ -32,4 +32,33 @@ public class OriginalController {
         return service.findById(id);
     }
 
+    @PutMapping("/{id}")
+    public Original update(@PathVariable long id, @RequestBody Original updatedOriginal) {
+        Optional<Original> originalOptional = service.findById(id);
+        if (originalOptional.isPresent()) {
+            Original original = originalOptional.get();
+            original.setDescription(updatedOriginal.getDescription());
+            original.setCategory(updatedOriginal.getCategory());
+            original.setMaterial(updatedOriginal.getMaterial());
+            original.setPrice((float) updatedOriginal.getPrice());
+            original.setSize(updatedOriginal.getSize());
+            original.setQuantity(updatedOriginal.getQuantity());
+            original.setTitle(updatedOriginal.getTitle());
+            original.setUrl(updatedOriginal.getUrl());
+            return service.save(original);
+        } else {
+            throw new RuntimeException("Original not found with id: " + id);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        Optional<Original> originalOptional = service.findById(id);
+        if (originalOptional.isPresent()) {
+            service.delete(originalOptional.get());
+        } else {
+            throw new RuntimeException("Original not found with id: " + id);
+        }
+    }
+
 }
