@@ -6,7 +6,6 @@ import { Router, RouterLink } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { Location } from '@angular/common';
 
-
 @Component({
   selector: 'elw-header',
   standalone: true,
@@ -21,14 +20,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private location: Location) {}
-
-  reloadPage(): void {
-    const currentUrl = this.location.path();
-    if (currentUrl === '/products') {
-      this.location.replaceState(currentUrl);
-      window.location.reload();
-
-}
+  isMobileMenuOpen = false;
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
   }
 }
