@@ -25,12 +25,17 @@ import { Product } from '../../shop.service'
 export class ProductDetailComponent {
   @Input() product: Product | null = null;
   @Input() original: Original | null = null;
-
   @Output() addToCart: EventEmitter<Original> = new EventEmitter<Original>();
+  @Output() isAddToCartDisabled: boolean = false;
+
 
   addToCartEmit() {
     if (this.original) {
       this.addToCart.emit(this.original);
     }
+    if (this.original?.quantity == 0) {
+      this.isAddToCartDisabled = true;
+    }
   }
+
 }
