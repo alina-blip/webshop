@@ -2,11 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { User } from '../../user.service';
+import { MatButtonModule } from '@angular/material/button'
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'elw-registration',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatButtonModule, RouterLink],
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
