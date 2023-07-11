@@ -24,7 +24,6 @@ export class CartComponent {
   emitDecrementCount(product: Product) {
     this.decrementCount.emit(product);
   }
-
   emitIncrementCount(product: Product) {
     this.incrementCount.emit(product);
   }

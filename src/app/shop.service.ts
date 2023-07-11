@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Original } from './original.service';
+import { Original, OriginalService } from './original.service';
 
 export interface Product {
   original: Original;
-  inventory_count: number;
   cart_count: number;
 }
 
@@ -17,6 +16,7 @@ export interface Cart {
   providedIn: 'root',
 })
 export class ShopService {
+  constructor(private originalService: OriginalService) {}
   items: Product[] = [];
   cart: Cart = {
     items: [],
@@ -27,17 +27,19 @@ export class ShopService {
   addToCart(original: Original) {
     const product: Product = {
       original: original,
-      inventory_count: 1,
       cart_count: 1,
     };
-    if (this.isNameInCart(product)) {
+    if (this.isIdInCart(product)) {
       this.sumCount(product);
+      this.calculateQuantity(product);
     } else {
       this.items = [...this.items, product];
+      this.calculateQuantity(product);
       console.log(this.items);
       return;
     }
   }
+
   calculateTotal() {
     this.cart.total = this.items.reduce(
       (total, item) => total + item.original.price * item.cart_count,
@@ -54,10 +56,7 @@ export class ShopService {
   clearCart(product: Product) {
     this.items = this.items
       .map((item) => {
-        if (
-          item.original.title === product.original.title &&
-          item.cart_count > 0
-        ) {
+        if (item.original.id === product.original.id && item.cart_count > 0) {
           return { ...item, cart_count: (item.cart_count = 0) };
         } else {
           return item;
@@ -71,10 +70,7 @@ export class ShopService {
   decrementCount(product: Product) {
     this.items = this.items
       .map((item) => {
-        if (
-          item.original.title === product.original.title &&
-          item.cart_count > 0
-        ) {
+        if (item.original.id === product.original.id && item.cart_count > 0) {
           return { ...item, cart_count: item.cart_count - 1 };
         } else {
           return item;
@@ -89,10 +85,7 @@ export class ShopService {
   incrementCount(product: Product) {
     this.items = this.items
       .map((item) => {
-        if (
-          item.original.title === product.original.title &&
-          item.cart_count > 0
-        ) {
+        if (item.original.id === product.original.id && item.cart_count > 0) {
           return { ...item, cart_count: item.cart_count + 1 };
         } else {
           return item;
@@ -103,18 +96,39 @@ export class ShopService {
     this.saveCart();
     console.log(this.items);
   }
-  isNameInCart(product: Product) {
-    return this.items.some(
-      (item) => product.original.title === item.original.title
-    );
+  isIdInCart(product: Product) {
+    return this.items.some((item) => product.original.id === item.original.id);
   }
   sumCount(product: Product) {
     this.items = this.items.map((item) => {
-      if (
-        item.original.title === product.original.title &&
-        item.original.price > 0
-      ) {
+      if (item.original.id === product.original.id && item.original.price > 0) {
         return { ...item, cart_count: item.cart_count + product.cart_count };
+      } else {
+        return item;
+      }
+    });
+  }
+
+  calculateQuantity(product: Product) {
+    this.items = this.items.map((item) => {
+      if (
+        item.original.id === product.original.id &&
+        item.original.price >= 0
+      ) {
+        const updatedQuantity = product.original.quantity - product.cart_count;
+
+        this.originalService.updateOriginal({
+          ...product.original,
+          quantity: product.original.quantity - product.cart_count,
+        });
+
+        return {
+          ...item,
+          original: {
+            ...item.original,
+            quantity: updatedQuantity,
+          },
+        };
       } else {
         return item;
       }
