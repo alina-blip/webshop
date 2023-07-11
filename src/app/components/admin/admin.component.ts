@@ -114,7 +114,9 @@ export class AdminComponent implements OnInit {
   }
 
   update() {
-    this.updateProduct.emit(this.originalControl.value as Original);
+    const formFields = structuredClone(this.originalControl.value);
+    formFields['url'] = 'thisistheurl';
+    this.updateProduct.emit(formFields as Original);
   }
 
   delete(){
