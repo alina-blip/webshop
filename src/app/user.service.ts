@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, tap, throwError } from 'rxjs'
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router'
-import { Original } from './original.service'
+import { Router } from '@angular/router';
 
 export interface User {
   name: string;
@@ -27,7 +26,7 @@ export class UserService {
     return this.http.post<User>(`http://localhost:8080/user`, user).pipe(
       tap((response: User) => {
         console.log('Registration successful:', response);
-        this.router.navigate(['/user']); // Navigate to the user page
+        this.router.navigate(['/login']); // Navigate to the user page
       })
     );
   }
@@ -63,7 +62,3 @@ export class UserService {
       );
   }
 }
-
-
-
-
