@@ -6,11 +6,13 @@ import { Observable, switchMap } from 'rxjs'
 import { Original, OriginalService } from '../../original.service';
 import { ActivatedRoute } from '@angular/router';
 import { FilterComponent } from '../../components/filter/filter.component'
+import { ProductsContainerComponent } from '../products-container/products-container.component'
+import { ProductsComponent } from '../../components/products/products.component'
 
 @Component({
   selector: 'elw-product-detail-container',
   standalone: true,
-  imports: [CommonModule, ProductDetailComponent, FilterComponent],
+  imports: [CommonModule, ProductDetailComponent, FilterComponent, ProductsContainerComponent, ProductsComponent],
   templateUrl: './product-detail-container.component.html',
   styleUrls: ['./product-detail-container.component.scss'],
 })
@@ -35,5 +37,6 @@ export class ProductDetailContainerComponent implements OnInit {
     this.shopService.addToCart(original);
     this.shopService.saveCart();
     this.shopService.calculateTotal();
+    this.shopService.calculateItemsTotal();
   }
 }

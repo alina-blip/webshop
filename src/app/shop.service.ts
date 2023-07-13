@@ -10,6 +10,7 @@ export interface Cart {
   items: Product[];
   total: number;
   date: string;
+  items_total: number;
 }
 
 @Injectable({
@@ -22,6 +23,7 @@ export class ShopService {
     items: [],
     total: 0,
     date: '',
+    items_total: 0,
   };
 
   addToCart(original: Original) {
@@ -48,11 +50,9 @@ export class ShopService {
     console.log(this.cart);
     this.saveCart();
   }
-
   getItems() {
     return this.items;
   }
-
   clearCart(product: Product) {
     this.items = this.items
       .map((item) => {
@@ -64,6 +64,7 @@ export class ShopService {
       })
       .filter((item: Product) => item.cart_count !== 0);
     this.calculateTotal();
+    this.calculateItemsTotal();
     this.saveCart();
     console.log(this.items);
   }
@@ -78,10 +79,10 @@ export class ShopService {
       })
       .filter((item: Product) => item.cart_count !== 0);
     this.calculateTotal();
+    this.calculateItemsTotal();
     this.saveCart();
     console.log(this.items);
   }
-
   incrementCount(product: Product) {
     this.items = this.items
       .map((item) => {
@@ -93,6 +94,7 @@ export class ShopService {
       })
       .filter((item: Product) => item.cart_count !== 0);
     this.calculateTotal();
+    this.calculateItemsTotal();
     this.saveCart();
     console.log(this.items);
   }
@@ -108,7 +110,6 @@ export class ShopService {
       }
     });
   }
-
   calculateQuantity(product: Product) {
     this.items = this.items.map((item) => {
       if (
@@ -134,17 +135,22 @@ export class ShopService {
       }
     });
   }
-
   saveCart() {
     this.cart.items = this.items;
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
-
   loadCart() {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       this.cart = JSON.parse(savedCart);
       this.items = this.cart.items;
     }
+  }
+  calculateItemsTotal(){
+    this.cart.items_total = this.items.reduce(
+      (items_total, items) => items_total + items.cart_count,
+      0
+    );
+    this.saveCart();
   }
 }
