@@ -115,8 +115,9 @@ export class AdminComponent implements OnInit {
 
   update() {
     const formFields = structuredClone(this.originalControl.value);
-    formFields['url'] = 'thisistheurl';
+    formFields['url'] = 'http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp';
     this.updateProduct.emit(formFields as Original);
+    this.myWidget.open();
   }
 
   delete(){
