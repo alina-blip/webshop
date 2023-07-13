@@ -29,6 +29,5 @@ export class UserContainerComponent implements OnInit{
   //       return this.userService.getUserById(Number(params.get('id')));
   //   })
   // );}
-
 }
 }

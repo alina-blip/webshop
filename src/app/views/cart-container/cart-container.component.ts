@@ -33,8 +33,7 @@ export class CartContainerComponent implements OnInit{
   incrementCount(product: Product) {
     this.shopService.incrementCount(product);
   }
-
-  ngOnInit () {
+  ngOnInit() {
     this.shopService.loadCart();
     console.log(this.items);
   }

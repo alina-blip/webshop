@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { Location } from '@angular/common';
+import { Cart, Product } from '../../shop.service'
 
 @Component({
   selector: 'elw-header',
@@ -20,6 +20,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  @Input() items: Product[] = [];
+  @Input() cart: Cart | undefined;
+
   isMobileMenuOpen = false;
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
