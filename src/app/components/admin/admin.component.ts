@@ -1,15 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { MatCardModule } from '@angular/material/card'
-import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms'
-import { MatButtonModule } from '@angular/material/button'
-import { Original } from '../../original.service'
-import { MatInputModule } from '@angular/material/input'
-import { CloudinaryModule } from '@cloudinary/ng'
-import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen'
-import { fill } from '@cloudinary/url-gen/actions/resize'
-import { Category} from '../../original.service';
-import { MatSelectModule } from '@angular/material/select'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { Original } from '../../original.service';
+import { MatInputModule } from '@angular/material/input';
+import { CloudinaryModule } from '@cloudinary/ng';
+import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
+import { fill } from '@cloudinary/url-gen/actions/resize';
+import { Category } from '../../original.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'elw-admin',
@@ -31,9 +36,10 @@ export class AdminComponent implements OnInit {
     new EventEmitter<Original>();
   @Input() origin: Original | null = null;
   @Input() category: Category | null = null;
-  @Output() updateProduct: EventEmitter<Original> = new EventEmitter<Original>;
-  @Output() deleteProduct: EventEmitter<Original> = new EventEmitter<Original>;
-
+  @Output() updateProduct: EventEmitter<Original> =
+    new EventEmitter<Original>();
+  @Output() deleteProduct: EventEmitter<Original> =
+    new EventEmitter<Original>();
 
   originalControl = new FormGroup({
     id: new FormControl(0),
@@ -110,17 +116,19 @@ export class AdminComponent implements OnInit {
     }
   }
   openWidget() {
+    console.log(this);
     this.myWidget.open();
   }
 
   update() {
-    const formFields = structuredClone(this.originalControl.value);
-    formFields['url'] = 'http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp';
-    this.updateProduct.emit(formFields as Original);
-    this.myWidget.open();
+    // const formFields = structuredClone(this.originalControl.value);
+    // formFields['url'] =
+    //   'http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp';
+    // this.updateProduct.emit(formFields as Original);
+    // this.myWidget.open();
   }
 
-  delete(){
+  delete() {
     this.deleteProduct.emit(this.originalControl.value as Original);
   }
 }

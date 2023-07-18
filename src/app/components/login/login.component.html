@@ -12,6 +12,13 @@
             formControlName="email"
             id="email" placeHolder="Email"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="loginForm.get('email')?.hasError('required')&& (loginForm.get('email')?.touched ||loginForm.get('email')?.dirty )">
+            Email is required.
+          </div>
+          <div class="text-red-500 text-sm" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+            Please enter a valid email address.
+          </div>
+
         </div>
       </div>
       <div>
@@ -22,6 +29,9 @@
             formControlName="password"
             id="password" placeHolder="Password"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+            Please enter your Password.
+          </div>
         </div>
       </div>
     </div>
@@ -34,5 +44,9 @@
 <div class="block text-sm text-center leading-6 px-4.5 py-7 text-gray-700">
   New here? <a [routerLink]="('/register')" class="underline">Register here.</a>
 </div>
+
+<!--  <div *ngIf="loginError" class="text-red-500 text-sm text-center mt-4">-->
+<!--    {{ loginError }}-->
+<!--  </div>-->
 </div>
 

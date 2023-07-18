@@ -30,13 +30,14 @@ export class LoginComponent {
   @Output() login: EventEmitter<LoginData> = new EventEmitter<LoginData>();
   @Input() logindata: LoginData | null = null;
 
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
 
   submit() {
-    if (this.loginForm) {
+    if (this.loginForm.valid) {
       this.login.emit(this.loginForm.value as LoginData);
     }
   }

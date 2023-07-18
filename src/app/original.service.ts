@@ -20,10 +20,6 @@ export enum Category {
   STICKER = 'STICKER',
 }
 
-export interface CategoryFilter {
-  category: string | null | undefined;
-}
-
 @Injectable({
   providedIn: 'root',
 })

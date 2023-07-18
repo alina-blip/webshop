@@ -13,6 +13,9 @@
             id="name"
             placeHolder="First Name"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('name')?.hasError('required') && registrationControl.get('name')?.touched">
+            Please enter your First Name.
+          </div>
         </div>
       </div>
       <div>
@@ -23,6 +26,9 @@
             formControlName="surname"
             id="surname" placeHolder="Surname"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('surname')?.hasError('required') && registrationControl.get('surname')?.touched">
+            Please enter your Last name.
+          </div>
         </div>
       </div>
       <div>
@@ -33,6 +39,9 @@
             formControlName="street"
             id="street" placeHolder="Street"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('street')?.hasError('required') && registrationControl.get('street')?.touched">
+            Please enter your Street.
+          </div>
         </div>
       </div>
       <div>
@@ -43,6 +52,9 @@
             formControlName="housenumber"
             id="housenumber" placeHolder="Housenumber"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('housenumber')?.hasError('required') && registrationControl.get('housenumber')?.touched">
+            Please enter your Housenumber.
+          </div>
         </div>
       </div>
       <div>
@@ -53,6 +65,9 @@
             formControlName="postalcode"
             id="postalcode" placeHolder="Postalcode"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('postalcode')?.hasError('required') && registrationControl.get('postalcode')?.touched">
+            Please enter your Postalcode.
+          </div>
         </div>
       </div>
       <div>
@@ -63,6 +78,9 @@
             formControlName="country"
             id="country" placeHolder="Country"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('country')?.hasError('required') && registrationControl.get('country')?.touched">
+            Please enter your Country.
+          </div>
         </div>
       </div>
       <div>
@@ -73,6 +91,9 @@
             formControlName="email"
             id="email" placeHolder="Email"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('email')?.hasError('required') && registrationControl.get('email')?.touched">
+            Please enter your Email.
+          </div>
         </div>
       </div>
       <div>
@@ -83,6 +104,9 @@
             formControlName="password"
             id="password" placeHolder="Password"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('password')?.hasError('required') && registrationControl.get('password')?.touched">
+            Please enter your Password.
+          </div>
         </div>
       </div>
       <div>
@@ -93,6 +117,9 @@
             formControlName="password"
             id="confirmPassword" placeHolder="Confirm Password" (input)="validatePassword()"
             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          <div class="text-red-500 text-sm" *ngIf="registrationControl.get('password')?.hasError('required') && registrationControl.get('password')?.touched">
+            Please confirm your Password.
+          </div>
         </div>
       </div>
     </div>
