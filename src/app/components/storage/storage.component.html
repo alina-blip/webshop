@@ -1,0 +1,24 @@
+ <div class="card-container">
+  <mat-card>
+    <mat-card-content>
+      <h2>Storage</h2>
+      <div class="item-container">
+      <div *ngFor="let originalitems of original">
+          <div class="item">
+        <mat-card>
+          <div class="item-info"> <h2> Id: {{ originalitems.id }} </h2> </div>
+          <div class="item-info">  Title: {{ originalitems.title }} </div>
+          <div class="item-info">  Material: {{ originalitems.material }}</div>
+          <div class="item-info">  Description: {{ originalitems.description }}</div>
+          <div class="item-info">  Price: € {{ originalitems.price }}</div>
+          <div class="item-info">  Category: {{ originalitems.category}}</div>
+          <div class="item-info">  Quantity: {{ originalitems.quantity}}</div>
+          <img alt="product-picture" [src]="originalitems.url" />
+        </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  </div>
+

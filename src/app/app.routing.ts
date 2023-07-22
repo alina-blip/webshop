@@ -1,10 +1,37 @@
 import { Routes } from '@angular/router';
-import {ShopContainerComponent} from "./views/shop-container/shop-container.component";
-import {ShopComponent} from "./components/shop/shop.component";
+import { CartContainerComponent } from './views/cart-container/cart-container.component';
+import { ProductDetailContainerComponent } from './views/product-detail-container/product-detail-container.component';
+import { AboutContainerComponent } from './views/about-container/about-container.component';
+import { WorksContainerComponent } from './views/works-container/works-container.component';
+import { LoginContainerComponent } from './views/login-container/login-container.component';
+import { StorageContainerComponent } from './views/storage-container/storage-container.component';
+import { ContactContainerComponent } from './views/contact-container/contact-container.component'
+import { FaqContainerComponent } from './views/faq-container/faq-container.component'
+import { RegistrationContainerComponent } from './views/registration-container/registration-container.component'
+import { LegalNoticeContainerComponent } from './views/legal-notice-container/legal-notice-container.component'
+import { UserContainerComponent } from './views/user-container/user-container.component'
 
 export const APP_ROUTES: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: ''},
-  // { path: 'shop', loadComponent: () => import('./views/shop-container/shop-container.component').then((c => c.ShopContainerComponent))},
-  { path: 'shop', component: ShopContainerComponent},
-  { path: 'test', component: ShopComponent}
-]
+  { path: '', pathMatch: 'full', redirectTo: '/works' },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./views/products-container/products-container.component').then(
+        (c) => c.ProductsContainerComponent
+      ),
+  },
+  { path: 'cart', component: CartContainerComponent },
+  { path: 'product/:id', component: ProductDetailContainerComponent },
+  { path: 'about', component: AboutContainerComponent },
+  { path: 'works', component: WorksContainerComponent },
+  { path: 'login', component: LoginContainerComponent },
+  { path: 'admin', component: StorageContainerComponent },
+  { path: 'contact', component: ContactContainerComponent },
+  { path: 'faqs', component: FaqContainerComponent },
+  { path: 'register', component: RegistrationContainerComponent },
+  { path: 'legal-notice', component: LegalNoticeContainerComponent},
+  { path: 'user', component: UserContainerComponent},
+
+
+
+];

@@ -1,14 +1,24 @@
-.main-navigation {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-//  justify-content: space-around;
-//flex-direction: column;
+a {
+  font-family: "Roboto";
+  font-size: 1.1em;
+  font-weight: lighter;
+  color: rgb(65, 53, 67);
 }
-.mat-toolbar {
-  z-index: 100;
+.special-h {
+  font-family: "subway-new-york-std", sans-serif;
+  font-size: 2.8em;
+  color: black;
+  text-align: left;
 }
 
-.image-logo {
-  height: 33px;
+a:hover {
+  color: rgb(143, 67, 238);
+  background-color: transparent;
+}
+a:active {
+  color: rgb(170, 80, 255);
+}
+
+.header {
+  z-index: 1000;
 }

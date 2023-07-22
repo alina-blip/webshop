@@ -1,0 +1,22 @@
+.item-container {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.item {
+  padding: 25px;
+}
+.card-container {
+  padding:25px;
+}
+mat-card {
+  padding: 15px;
+}
+
+img {
+  width: 250px;
+  padding: 8px;
+}
+
+

@@ -1,0 +1,87 @@
+<div class="card-container">
+  <mat-card>
+    <mat-card-content>
+      <h2>Add, update and delete products</h2>
+      <form [formGroup]="originalControl" class="form">
+        <div>
+          <mat-form-field>
+            <mat-label>Id: </mat-label>
+            <label for="id"></label>
+            <input matInput id="id" type="number" formControlName="id">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Title: </mat-label>
+            <label for="title"></label>
+             <input matInput id="title" type="text" formControlName="title">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label> Size:</mat-label>
+            <label for="size"></label>
+            <input matInput id="size" type="text" formControlName="size">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label> Material:</mat-label>
+            <label for="material"></label >
+            <input matInput id="material" type="text" formControlName="material">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label> Description:</mat-label>
+            <label for="description"></label>
+            <textarea matInput id="description" type="text" formControlName="description" rows="4"></textarea>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label> Price:</mat-label>
+            <label for="price"></label>
+            <input matInput id="price" type="text" formControlName="price">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label> Category:</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let category of categories" [value]="category">{{ getCategoryLabel(category) }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+          <mat-label> Quantity:</mat-label>
+          <div>
+            <label for="quantity"></label>
+            <input matInput id="quantity" type="number" formControlName="quantity">
+          </div>
+          </mat-form-field>
+        </div>
+<!--        <div>-->
+<!--        {{ originalControl.value | json}}-->
+<!--        </div>-->
+        <button mat-raised-button id="upload_widget" (click)="openWidget()" >
+          Upload Image and Save
+        </button>
+        <span class="side-spacer"></span>
+        <button mat-raised-button (click)="update()">Update</button>
+        <span class="side-spacer"></span>
+        <button mat-raised-button (click)="delete()">Delete</button>
+
+
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+
+
+

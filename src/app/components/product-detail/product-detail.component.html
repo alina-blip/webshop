@@ -1,0 +1,39 @@
+<div *ngIf="original
+" class="card-container">
+  <div class="cards">
+  <mat-card class="product
+  -card">
+  <img mat-card-image [src]="original.url" alt="{{ original
+  .title }}">
+</mat-card>
+</div>
+<div class="cards">
+<mat-card class="original
+-card">
+  <mat-card-header>
+    <mat-card-title> <h1>{{ original
+      .title }}</h1></mat-card-title>
+    <br>
+  </mat-card-header>
+  <mat-card-content>
+    <h4>Limited edition</h4>
+      <ul>
+        <li>Material: {{ original.material }}</li>
+    <li>Size: {{ original
+      .size }}</li>
+    <li>{{ original
+      .description }}</li>
+  </ul>
+    <div>{{ original.quantity }} pieces left in stock</div>
+  </mat-card-content>
+<mat-divider></mat-divider>
+  <mat-card-actions class="price-container">
+    <p class="price">€ {{ original
+      .price }} </p>
+    <button mat-button (click)="addToCartEmit()" [disabled]="isAddToCartDisabled">Add to Cart</button>
+  </mat-card-actions>
+</mat-card>
+</div>
+</div>
+
+
